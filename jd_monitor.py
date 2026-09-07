@@ -57,37 +57,7 @@ def check_stock(name, sku):
             return
 
         state = str(item.get("a", ""))
-        quantity = item.get("c", "")
-
-        # 33 = 有货
-        if state == "33":
-
-            print("🔥 有货！")
-
-            bark_push(
-                name,
-                sku,
-                f"有货，库存：{quantity}"
-            )
-
-        elif state == "34":
-
-            print("❌ 无货")
-
-        else:
-
-            print(
-                f"库存状态：{state}，数量：{quantity}"
-            )
-
-    except Exception as e:
-
-        print(
-            f"检查 {name} 失败：{e}"
-        )
-
-
-if __name__ == "__main__":
+        quantity = item.get("c", ""_main__":
 
     print("=" * 50)
     print("京东库存监控启动")
