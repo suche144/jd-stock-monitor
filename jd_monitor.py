@@ -1,36 +1,9 @@
 import os
-import re===========
-# 需要监控的商品
-# =================
-
-PRODUCTS = {
-    "花朵系列": "10217041125002",
-    "水果系列": "10196364421727",
-    "花的礼物": "1023433061095610",
-}
-
-# 深圳
-AREA = os.getenv("JD_AREA", "19_1607_0_0")
-
-# Bark
-BARK_KEY = os.getenv("BARK_KEY")
-
-
-def bark_push(name, sku, stock):
-    if not BARK_KEY:
-        print("BARK_KEY 尚未配置")
-        return
+import 
 
     url = f"https://api.day.app/{BARK_KEY}"
 
-    data = {
-        "title": "🔥 京东库存提醒",
-        "body": f"{name}\n库存状态：{stock}\nSKU：{sku}",
-        "url": f"https://item.jd.com/{sku}.html",
-    }
-
-    try:
-        r = requests.post(url, json=data, timeout=10)
+    daurl, json=data, timeout=10)
         print("Bark:", r.status_code)
     except Exception as e:
         print("Bark 推送失败:", e)
