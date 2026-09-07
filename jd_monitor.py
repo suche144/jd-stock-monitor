@@ -17,51 +17,7 @@ def check_stock(name, sku):
     params = {
         "app": "cart_pc",
         "ch": "1",
-        "skuNum": f"{sku},1",
-        "area": AREA.replace("_", ","),
-    }
-
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) "
-            "AppleWebKit/605.1.15 (KHTML, like Gecko) "
-            "Version/17.0 Mobile/15E148 Safari/604.1"
-        ),
-        "Referer": "https://cart.jd.com/",
-    }
-
-    try:
-
-        response = requests.get(
-            url,
-            params=params,
-            headers=headers,
-            timeout=15
-        )
-
-        print(f"\n{name} | SKU：{sku}")
-        print("HTTP状态：", response.status_code)
-        print("返回：", response.text)
-
-        response.raise_for_status()
-
-        data = response.json()
-
-        # 京东接口通常返回：
-        # {"SKU":{"a":"33","b":"1","c":"5"}}
-
-        item = data.get(str(sku))
-
-        if not item:
-            print("没有找到商品库存信息")
-            return
-
-        state = str(item.get("a", ""))
-        quantity = item.get("c", ""_main__":
-
-    print("=" * 50)
-    print("京东库存监控启动")
-    print("时间：", datetime.now())
+        "skuNum": f"{sk
     print("监控商品：", len(PRODUCTS))
     print("地区：深圳")
     print("=" * 50)
